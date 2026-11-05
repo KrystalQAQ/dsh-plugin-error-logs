@@ -1,0 +1,25 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 本地凭据（Grafana 地址 / Token 等），绝不提交
+*.local
+.env
+.env.*
+!.env.example
+error-logs.json
+*.secret
+cordis.patch.local.yml
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+*.swp
+
+# 构建/缓存
+dist/
+.turbo/
+coverage/

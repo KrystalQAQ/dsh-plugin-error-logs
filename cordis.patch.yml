@@ -1,0 +1,21 @@
+# 错误日志插件
+# Host 半边：在 webServer 上暴露 /x-error-logs/* 路由，转发到 Grafana Loki 查询最新错误日志。
+# Client 半边：由本包 package.json 的 dsh.client 声明，client-modules 自动挂载，
+#              注册左侧栏入口（sidebar.panellist）与主面板页面（main）。
+#
+# 下面的 config 只是占位模板：真实的 Grafana 地址与 Token 属于私密凭据，
+# 请在你自己 profile 的 cordis.patch.yml 里覆盖，或直接改本文件（切勿提交）。
+- insert:
+    - id: error-logs
+      name: 'dsh-plugin-error-logs'
+      config:
+        # Grafana 基地址（与 grafana-plugin 同一实例）
+        url: ''
+        # 服务账号 token（Bearer）
+        token: ''
+        # Loki 数据源 uid；留空则自动发现第一个 loki 类型数据源
+        datasourceUid: ''
+        # 默认时间窗口（秒）
+        windowSeconds: 3600
+        # 默认返回条数
+        limit: 200
